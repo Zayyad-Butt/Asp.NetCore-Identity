@@ -1,0 +1,39 @@
+﻿@model Lec2.ViewModels.RegisterViewModel
+<h2>Register User</h2>
+<div asp-validation-summary="All" class="text-danger"></div>
+<form method="post" asp-action="Register">
+    <div class="mb-3 form-group">
+        <label asp-for="Username" class="form-label"></label>
+        <input asp-for="Username"  placeholder="Username" class="form-control" id="username">
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+    <div class="mb-3 form-group">
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email"  placeholder="Email" class="form-control" id="email">
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3 form-group">
+        <label asp-for="Gender" class="form-label"><b>Gender:</b></label>
+        @foreach (var gender in Model.Genders)
+        {
+            <input type="radio" asp-for="Gender" value="@gender" id="@(gender)" />
+            <label asp-for="Gender" class="form-label">@gender</label>
+        }
+        <span asp-validation-for="Gender" class="text-danger"></span>
+
+    </div>
+    
+    <div class="mb-3 form-group">
+        <label asp-for="Password" class="form-label"></label>
+        <input asp-for="Password" type="password" placeholder="Password" class="form-control" id="exampleInputPassword1">
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div class="mb-3 form-group">
+        <label asp-for="ConfirmPassword" class="form-label"></label>
+        <input asp-for="ConfirmPassword" type="password" placeholder="Confirm Password" class="form-control" id="exampleInputPassword2">
+        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>

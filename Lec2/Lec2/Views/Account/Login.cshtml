@@ -1,0 +1,19 @@
+﻿@model Lec2.ViewModels.LoginViewModel
+
+<h2>User Sign In</h2>
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form method="post" style="padding-left:200px ;padding-right:200px;" class="mt-5 container">
+    <div class="mb-3 form-group">
+        <label asp-for="Username" class="form-label"></label>
+        <input asp-for="Username" type="text" placeholder="Username" class="form-control" id="username">
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3 form-group">
+        <label asp-for="Password" class="form-label"></label>
+        <input asp-for="Password" type="password" placeholder="Password" class="form-control" id="exampleInputPassword1">
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Log In</button>
+</form>
