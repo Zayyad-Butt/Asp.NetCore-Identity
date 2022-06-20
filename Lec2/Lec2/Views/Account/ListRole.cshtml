@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Lec2.ViewModels.ListRoleViewModel>
+@{
+    ViewBag.Title = "All Roles";
+}
+<h1>All Roles</h1>
+@if (Model.Any())
+{
+    foreach (var role in Model)
+    {
+        <div class="card mb-3">
+            <div class="card-header">
+                Role Id: @role.Id
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    @role.RoleName
+                </h5>
+                <form method="post">
+                    <div class="card-footer">
+                       
+                        <a asp-action="AssignRole" asp-route-roleId="@role.Id" class="btn btn-primary">
+                            Assign Role to user
+                        </a>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    }
+
+}
+else
+{
+    <div class="card">
+        <div class="card-header">
+            No role added yet
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">
+                Use the button below to create role
+            </h5>
+            <a class="btn btn-primary" style="width:auto"
+               asp-controller="Account" asp-action="AddRole">
+                Add new role
+            </a>
+        </div>
+    </div>
+}
+

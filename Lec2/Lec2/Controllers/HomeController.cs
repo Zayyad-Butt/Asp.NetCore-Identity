@@ -18,7 +18,7 @@ namespace Lec2.Controllers
         {
             return View();
         }
-        [Authorize]
+        [Authorize (Roles ="manager")]
         public IActionResult Privacy()
         {
             return View();

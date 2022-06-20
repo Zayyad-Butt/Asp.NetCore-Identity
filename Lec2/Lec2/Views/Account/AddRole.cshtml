@@ -1,0 +1,13 @@
+﻿@model Lec2.ViewModels.RoleViewModel
+<h2>Add New Role</h2>
+<div asp-validation-summary="All" class="text-danger"></div>
+<form method="post" asp-action="AddRole">
+    <div class="mb-3 form-group">
+        <label asp-for="RoleName" class="form-label"></label>
+        <input asp-for="RoleName" type="text" placeholder="Enter role" class="form-control" id="role">
+        <span asp-validation-for="RoleName" class="text-danger"></span>
+    </div>
+    
+    <button type="submit" class="btn btn-outline-primary">Add</button>
+</form>
+
