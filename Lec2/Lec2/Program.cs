@@ -19,6 +19,16 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<AppDbContext>();
 
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("DeleteRolePolicy",
+        policy => policy.RequireClaim("Delete Role"));
+    options.AddPolicy("CreateRolePolicy",
+        policy => policy.RequireClaim("Create Role"));
+    options.AddPolicy("EditRolePolicy",
+        policy => policy.RequireClaim("Edit Role"));
+});
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

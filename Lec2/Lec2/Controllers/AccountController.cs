@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Lec2.ViewModels;
 using Lec2.Models;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Lec2.Controllers
 {
@@ -29,6 +31,12 @@ namespace Lec2.Controllers
         public IActionResult AccessDenied()
         {
             return View();
+        }
+        [HttpGet]
+        public IActionResult ListUsers()
+        {
+            var users = userManager.Users;
+            return View(users);
         }
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
@@ -76,7 +84,7 @@ namespace Lec2.Controllers
             }
             return View(model);
         }
-
+        [Authorize(Policy = "CreateRolePolicy")]
         [HttpGet]
         public IActionResult AddRole()
         {
@@ -194,6 +202,63 @@ namespace Lec2.Controllers
             return RedirectToAction("index", "home");
         }
 
+        [HttpGet]
+
+        public async Task<IActionResult> AssignClaims(string userId)
+        {
+            var user = await userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                ViewBag.ErrorMessage = $"Role with id: {userId} not found";
+                return View("NotFound");
+            }
+            var existingUserClaims = await userManager.GetClaimsAsync(user);
+            var model = new UserClaimsViewModel
+            {
+                UserId = userId
+            };
+            foreach (Claim claim in ClaimStore.AllClaims)
+            {
+                UserClaims userClaim = new UserClaims
+                {
+                    ClaimType = claim.Type
+                };
+                if (existingUserClaims.Any(c => c.Type == claim.Type))
+                {
+                    userClaim.IsSelected = true;
+                }
+
+                model.Claims.Add(userClaim);
+            }
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AssignClaims(UserClaimsViewModel model)
+        {
+            var user = await userManager.FindByIdAsync(model.UserId);
+            if (user == null)
+            {
+                ViewBag.ErrorMessage = $"Role with id: {model.UserId} not found";
+                return View("NotFound");
+            }
+            var claims = await userManager.GetClaimsAsync(user);
+            var result = await userManager.RemoveClaimsAsync(user, claims);
+            if (!result.Succeeded)
+            {
+                ModelState.AddModelError("", "Cannot remove user claims");
+                return View(model);
+            }
+            result = await userManager.AddClaimsAsync(user,
+                model.Claims.Where(c => c.IsSelected).Select
+                (c => new Claim(c.ClaimType, c.ClaimType)));
+            if (!result.Succeeded)
+            {
+                ModelState.AddModelError("", "Cannot add selected claims to user");
+                return View(model);
+            }
+            return RedirectToAction("ListUsers");
+        }
 
 
         [HttpGet]

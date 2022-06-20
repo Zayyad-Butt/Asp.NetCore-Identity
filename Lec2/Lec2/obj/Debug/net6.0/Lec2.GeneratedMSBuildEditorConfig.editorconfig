@@ -23,12 +23,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxBZGRSb2xlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/zayya/Documents/6th Semester/EAD/Practice work/Asp.NetCore-Identity/Lec2/Lec2/Views/Account/AssignClaims.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxBc3NpZ25DbGFpbXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/zayya/Documents/6th Semester/EAD/Practice work/Asp.NetCore-Identity/Lec2/Lec2/Views/Account/AssignRole.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxBc3NpZ25Sb2xlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/zayya/Documents/6th Semester/EAD/Practice work/Asp.NetCore-Identity/Lec2/Lec2/Views/Account/ListRole.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMaXN0Um9sZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/zayya/Documents/6th Semester/EAD/Practice work/Asp.NetCore-Identity/Lec2/Lec2/Views/Account/ListUsers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMaXN0VXNlcnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/zayya/Documents/6th Semester/EAD/Practice work/Asp.NetCore-Identity/Lec2/Lec2/Views/Account/Login.cshtml]
