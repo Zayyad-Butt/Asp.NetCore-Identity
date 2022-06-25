@@ -29,7 +29,7 @@ In this tutorial we will cover how we can use Asp.Net Core Identity to authentic
 - Open Visual Studio and make Asp.Net core Web Application MVC Project
 ![Capture](https://user-images.githubusercontent.com/71145709/175778934-1f9b375f-18ce-4733-b0ad-2dd241537bfc.PNG)
 
-1. Install these packages.
+- Install these packages.
 ```
 Microsoft.EntityFrameworkCore.Tools
 Microsoft.EntityFrameworkCore.sqlserver
@@ -38,7 +38,7 @@ Microsoft.aspnetcore.identity.EntityFramework
  - EntityFrameworkCore.Tools is for enabling commands lke Add-Migration, Update-Database etc.
  - EntityFrameworkCore.Sqlserver is for enabling connection with sql server database
  - ASP.NET Core Identity provider that uses Entity Framework Core.  
- - Go to Models Folder and make a class named AppDbContext and following code there.
+- Go to Models Folder and make a class named AppDbContext and following code there.
 
 ```  
 public class AppDbContext: IdentityDbContext
