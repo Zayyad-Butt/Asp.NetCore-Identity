@@ -1,6 +1,6 @@
 # ASP.NET Core Identity
 
-1. **[Tutorial # 1](#Tutorial-#-1)**
+1. **[Tutorial # 1](#tutorial--1)**
 
 ### Tutorial-#-1
 
