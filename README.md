@@ -25,7 +25,10 @@ In this tutorial we will cover how we can use Asp.Net Core Identity to authentic
 - Users can create an account with the login information stored in Identity or they can use an external login provider. Supported external login providers include Facebook, Google etc.
 
 #### Implementation:
-##### Making Project and connection with Asp.NetCoreIdentity Tables	
+- [Making Project and connection with Asp.NetCoreIdentity Tables](#making-project-and-connection-with-aspnetcoreidentity-tables)
+- [Integrating Asp.NetCoreIdentity Functionality to Signup And Login Pages](#integrating-aspnetcoreidentity-functionality-to-signup-and-login-pages)
+
+### Making Project and connection with Asp.NetCoreIdentity Tables	
 - Open Visual Studio and make Asp.Net core Web Application MVC Project
 ![Capture](https://user-images.githubusercontent.com/71145709/175778934-1f9b375f-18ce-4733-b0ad-2dd241537bfc.PNG)
 
@@ -94,8 +97,13 @@ Update-Database
 - Now go to SqlServerObject and search for your db and explore it. You can see tables have added there.
 ![Capture](https://user-images.githubusercontent.com/71145709/175779187-ed88528d-83df-4bfe-985c-e363a7eef27f.PNG)
 
-##### Integrating Asp.NetCoreIdentity Functionality to Signup And Login Pages
-- **SignUp Page Functionality**
+### Integrating Asp.NetCoreIdentity Functionality to Signup And Login Pages
+
+- [SignUp Page Functionality](#signup-page-functionality)
+- [Login Page Functionality](#login-page-functionality)
+- [LogOut Functionality](#logout-functionality)
+
+#### **SignUp Page Functionality**
 
 - Go to Controllers Folder and make a new controller named AccountController and make a function as follows.
 ```
@@ -224,7 +232,7 @@ And in this tutorial our main focus is not confirming email, so that i hard code
 
 ![Capture](https://user-images.githubusercontent.com/71145709/175779410-bca8d0c3-d7bd-4939-8943-ffe60fc67dc4.PNG)
 
-- **Login Page Functionality**
+#### **Login Page Functionality**
 - Make HttpGet Request for Login page
 ```
  [HttpGet]
@@ -292,7 +300,7 @@ public async Task<IActionResult> Login(LoginViewModel model)
 - Run Project and check login functionalities against the user you have added in db.
 - In ModelState.AddModelError function, i am passing an empty string by using string.Empty, and a message 
 
-- **LogOut Functionality**
+#### **LogOut Functionality**
 Add Logout functionality against user.
 Go to Account controller and add this function there
 ```
